@@ -1,0 +1,34 @@
+spring:
+  kafka:
+    bootstrap-servers: 47.244.108.153:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      group-id: test_group
+    consumer:
+      group-id: test_group
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+server:
+  port: 8088
+#启用shutdown
+management:
+  security:
+    enabled: false
+  port: 9527
+#  address: 127.0.0.1
+  context-path: /fuck
+endpoints:
+  shutdown:
+    enabled: true
+    path: /me
+security:
+  basic:
+    enabled: true
+    path: /fuck
+  user:
+    name: admin
+    password: lzl521
+
